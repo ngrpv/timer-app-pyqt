@@ -63,12 +63,14 @@ class Timer(QWidget):
             self.remaining_time = self.timer_edit.time()
         self._refresh_time_on_ui()
         self.is_started = True
+        self.is_paused = False
 
     def _pause_timer(self):
         self.is_paused = True
         self.is_started = False
 
     def _stop_timer(self):
+        self.is_paused = False
         self.is_started = False
         self.remaining_time = QTime(0,0,0)
         self._refresh_time_on_ui()
